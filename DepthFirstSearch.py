@@ -1,3 +1,4 @@
+from PIL import Image
 from Graph import Graph
 
 
@@ -49,7 +50,7 @@ def DFS(G,S,explored_v =[],explored_e =[],back_edge =[]):
        
     return explored_v
 
-
+image = Image.open('DFSGraph.PNG').show()
 
 
 
@@ -61,3 +62,4 @@ G = Graph(V,E)
 
 r = DFS(G,'A')
 print(r)
+
