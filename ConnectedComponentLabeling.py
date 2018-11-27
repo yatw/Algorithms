@@ -18,7 +18,8 @@ def ConnectedComponentLabeling(G):
     for v in all_vertices:
         if v not in G.label: # this vertex has no label
             label += 1
-            DSFLabel(G,v,label)
+            DSFLabel(G,v,label) # run DFS starting from this vertex
+            # everything connect to this vertex will get the same label
             
 
     return None
@@ -40,14 +41,15 @@ def DSFLabel(G,v,label, explored_e = []):
     
     return None
 
-    
-image = Image.open('CCLGraph.PNG').show()
+
+if __name__ == "__main__":
+    image = Image.open('CCLGraph.PNG').show()
 
 
 
-V = ['A','B','C','D','E','F']
-E = [{'A','B'},{'A','C'},{'B','C'},{'C','D'},{'E','F'}]
-G = Graph(V,E)
+    V = ['A','B','C','D','E','F']
+    E = [{'A','B'},{'A','C'},{'B','C'},{'C','D'},{'E','F'}]
+    G = Graph(V,E)
 
-ConnectedComponentLabeling(G)
-print(G.label)
+    ConnectedComponentLabeling(G)
+    print(G.label)

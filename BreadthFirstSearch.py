@@ -11,7 +11,7 @@ def getDestination(edge,origin):
     
 def BFS(G,S):
     '''Perform Breadth First Search on the graph, keep track of
-       discovery edge and cross edge
+       discovery edges and cross edges
     '''
     all_levels = [] #keep track of level with index 
     
@@ -49,18 +49,21 @@ def BFS(G,S):
     #print(discovery_edges)
     #print(cross_edges)
     return all_levels
+
+
+if __name__ == "__main__":
     
-image = Image.open('BFSGraph.PNG').show()
+    image = Image.open('BFSGraph.PNG').show()
 
 
 
 
-V = ['A','B','C','D','E','F','G','H','I','J','K']
-E = [{'A','B'},{'A','C'},{'A','D'},{'A','E'},{'C','D'},{'D','E'},{'B','F'},{'C','G'},{'G','F'},{'F','J'},{'G','H'},{'G','J'},{'J','K'},{'H','I'},{'H','K'}]
-G = Graph(V,E)
+    V = ['A','B','C','D','E','F','G','H','I','J','K']
+    E = [{'A','B'},{'A','C'},{'A','D'},{'A','E'},{'C','D'},{'D','E'},{'B','F'},{'C','G'},{'G','F'},{'F','J'},{'G','H'},{'G','J'},{'J','K'},{'H','I'},{'H','K'}]
+    G = Graph(V,E)
 
 
-r = BFS(G,'A')
-for i in r:
-    print(i)
+    r = BFS(G,'A')
+    for i in r:
+        print(i)
 
