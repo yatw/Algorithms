@@ -1,9 +1,10 @@
 from PIL import Image
 from Graph import Graph
-from DepthFirstSearch import DFS,getDestination
+from DepthFirstSearch import DFS
 
 
 def BC(G,S):
+    '''Construct an auxiliary graph that shows biconnected component'''
 
     Auxiliary = Graph()  # initially empty auxiliary graph
     
@@ -20,37 +21,32 @@ def BC(G,S):
             
             if v in be and be not in examined_backedges:
                 print(v, be)
-                print(back_edges)
                 
                 examined_backedges.append(be)
                 Auxiliary.Add_vertex(be)
 
-                for i in be:
-                    if i != v:
-                        u = i
+                u = G.GetDestination(be,v)
 
                 while (u != v):
-
-                    pp = G.FindParents(u)
-    
+                    possible_parents = G.FindParents(u)
                     u_index = explored_v.index(u)
                     
                     x = u_index -1
                     for i in range(u_index):
-                        if explored_v[x] in pp:
+                        if explored_v[x] in possible_parents:
                             p = explored_v[x]
                             break
                         
                         x = x-1
-                    print('for u',u,'p is',p)
+                    #print('for u',u,'p is',p)
                     
                     #print('v',v)
                     #print('u',u)
-                    print(pp)
-                    print(explored_v)
+                    #print(pp)
+                    #print(explored_v)
                     #print('p',p)
-                    f = {p,u}
-                    print('f',f)
+                    f = (p,u)
+                    print('-f',f)
                   
                     
                     if f not in Auxiliary.linked:
@@ -69,9 +65,12 @@ def BC(G,S):
 
 if __name__ == "__main__":
 
+    #image = Image.open('images\AuxiliaryGraph.PNG').show()
     V = ['A','B','C','D','E','F','H','J','K','L','M','P','N','Q']
-    E = [{'A','B'},{'A','C'},{'B','C'},{'C','D'},{'D','E'},{'E','F'},{'F','H'},{'H','J'},{'J','D'}
-         ,{'H','D'},{'C','K'},{'K','L'},{'L','M'},{'M','P'},{'P','Q'},{'P','N'},{'C','Q'},{'L','Q'},{'C','P'}]
+    E = [('A','B'),('A','C'),('B','C'),('C','D'),('D','E'),('E','F'),
+         ('F','H'),('H','J'),('J','D'),('H','D'),('C','K'),('K','L'),
+         ('L','M'),('M','P'),('P','Q'),('P','N'),('C','Q'),('L','Q'),
+         ('C','P')]
     G = Graph(V,E)
 
     r = BC(G, 'A')

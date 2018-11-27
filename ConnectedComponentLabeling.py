@@ -2,13 +2,6 @@ from PIL import Image
 from Graph import Graph
 
 
-def getDestination(edge,origin):
-
-    for vertices in edge:
-        if (vertices != origin):
-            return vertices
-
-        
 def ConnectedComponentLabeling(G):
     '''Assign a label to vertices such that vertices with same label are
        indicated to be in the same connected component'''
@@ -33,7 +26,7 @@ def DSFLabel(G,v,label, explored_e = []):
     for e in ce:
         if e not in explored_e:
             
-            next_vertex = getDestination(e,v)
+            next_vertex = G.GetDestination(e,v)
             explored_e.append(e)
         
             if (next_vertex not in G.label):
@@ -43,12 +36,12 @@ def DSFLabel(G,v,label, explored_e = []):
 
 
 if __name__ == "__main__":
-    image = Image.open('CCLGraph.PNG').show()
+    #image = Image.open('CCLGraph.PNG').show()
 
 
 
     V = ['A','B','C','D','E','F']
-    E = [{'A','B'},{'A','C'},{'B','C'},{'C','D'},{'E','F'}]
+    E = [('A','B'),('A','C'),('B','C'),('C','D'),('E','F')]
     G = Graph(V,E)
 
     ConnectedComponentLabeling(G)

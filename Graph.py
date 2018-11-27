@@ -2,7 +2,7 @@ class Graph:
     'Common base class for all graph objects'
 
     vertices = [] #nodes
-    edges = []  # edges store as pair of 2 vertices
+    edges = []  # edges store as tuple of 2 vertices
     
     label = {}  # mainly for Connected Component Labeling
                 # dictionary storing {vertex: label}
@@ -33,12 +33,11 @@ class Graph:
 
         possible_parents = []
         for e in self.edges:
-            if v in e:
 
-                for i in e:
-                    if v != i:
-                        possible_parents.append(i)
-                
+            if v in e:
+                p = self.GetDestination(e,v)
+                if p not in possible_parents:
+                    possible_parents.append(p)
         return possible_parents
         
 
@@ -48,14 +47,15 @@ class Graph:
         IncidentEdges = []
         for o,d in self.edges:
             if (v == o or v == d):
-                IncidentEdges.append({o,d})
+                IncidentEdges.append(tuple((o,d)))
             
         return IncidentEdges
 
-    def GetDestination(edge,v):
+    def GetDestination(self,edge,v):
         '''Given edge {v,d}, return d'''
 
-        tuple(edge)
-        for node in edge:
-            if node != v:
-                return node
+        if v != edge[0]:
+            return edge[0]
+        
+        return edge[1]
+     

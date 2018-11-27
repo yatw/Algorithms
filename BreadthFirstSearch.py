@@ -2,12 +2,6 @@ from PIL import Image
 from Graph import Graph
 
 
-def getDestination(edge,origin):
-
-    for vertices in edge:
-        if (vertices != origin):
-            return vertices
-
     
 def BFS(G,S):
     '''Perform Breadth First Search on the graph, keep track of
@@ -31,7 +25,7 @@ def BFS(G,S):
                 #print("-",edge)
                 if edge not in discovery_edges:
                     
-                    destination = getDestination(edge, n)
+                    destination = G.GetDestination(edge, n)
                     #print('-', destination)
                     if destination not in visited_nodes:
 
@@ -53,13 +47,15 @@ def BFS(G,S):
 
 if __name__ == "__main__":
     
-    image = Image.open('BFSGraph.PNG').show()
+    #image = Image.open('BFSGraph.PNG').show()
 
 
 
 
     V = ['A','B','C','D','E','F','G','H','I','J','K']
-    E = [{'A','B'},{'A','C'},{'A','D'},{'A','E'},{'C','D'},{'D','E'},{'B','F'},{'C','G'},{'G','F'},{'F','J'},{'G','H'},{'G','J'},{'J','K'},{'H','I'},{'H','K'}]
+    E = [('A','B'),('A','C'),('A','D'),('A','E'),('C','D'),('D','E'),
+         ('B','F'),('C','G'),('G','F'),('F','J'),('G','H'),('G','J'),
+         ('J','K'),('H','I'),('H','K')]   
     G = Graph(V,E)
 
 

@@ -2,13 +2,6 @@ from PIL import Image
 from Graph import Graph
 
 
-def getDestination(edge,origin):
-
-    for vertices in edge:
-        if (vertices != origin):
-            return vertices
-
-    
 def DFS(G,S,explored_v =[],explored_e =[],back_edge =[]):
     '''Perform Depth First Search on the graph, record back edge at the same time
 
@@ -28,7 +21,7 @@ def DFS(G,S,explored_v =[],explored_e =[],back_edge =[]):
         if e not in explored_e:
             # this is not the path you come from
      
-            destination = getDestination(e, S)
+            destination = G.GetDestination(e, S)
             explored_e.append(e)
                         
             if destination not in explored_v:
@@ -51,11 +44,14 @@ def DFS(G,S,explored_v =[],explored_e =[],back_edge =[]):
 
 
 if __name__ == "__main__":
-    #image = Image.open('DFSGraph.PNG').show()
+
+    #image = Image.open('images\DFSGraph.PNG').show()
 
 
     V = ['A','B','C','D','E','F','G','H','I','J','K']
-    E = [{'A','B'},{'A','C'},{'A','D'},{'A','E'},{'C','D'},{'D','E'},{'B','F'},{'C','G'},{'G','F'},{'F','J'},{'G','H'},{'G','J'},{'J','K'},{'H','I'},{'H','K'}]
+    E = [('A','B'),('A','C'),('A','D'),('A','E'),('C','D'),('D','E'),
+         ('B','F'),('C','G'),('G','F'),('F','J'),('G','H'),('G','J'),
+         ('J','K'),('H','I'),('H','K')]
     G = Graph(V,E)
 
 
