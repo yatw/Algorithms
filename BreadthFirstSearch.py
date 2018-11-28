@@ -47,7 +47,7 @@ def BFS(G,S):
 
 if __name__ == "__main__":
     
-    #image = Image.open('BFSGraph.PNG').show()
+    #image = Image.open('images\BFSGraph.PNG').show()
 
 
 

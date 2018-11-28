@@ -45,7 +45,7 @@ def DFS(G,S,explored_v =[],explored_e =[],back_edge =[]):
 
 if __name__ == "__main__":
 
-    #image = Image.open('images\DFSGraph.PNG').show()
+    image = Image.open('images\DFSGraph.PNG').show()
 
 
     V = ['A','B','C','D','E','F','G','H','I','J','K']
