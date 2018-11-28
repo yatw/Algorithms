@@ -42,7 +42,7 @@ class Graph:
         
 
     def GetIncidentEdges(self, v):
-        ''' Return all edges connect to this vertex '''
+        ''' Return all out going edges from vertex '''
 
         IncidentEdges = []
         for o,d in self.edges:

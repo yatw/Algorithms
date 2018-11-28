@@ -1,6 +1,6 @@
 
 
-def QuickSelect(l,k):
+def QuickSelect(l,k,m = None):
     '''Returns a kth smallest item from the list'''
 
     n = len(l)
@@ -11,7 +11,9 @@ def QuickSelect(l,k):
     E = []
     G = []
 
-    m = l[len(l)//2]  # just pick the middle element
+    if m is None:
+        m = l[len(l)//2]  # just pick the middle element
+    # else use the parameter m
     
     for i in l:
         if i < m:
@@ -31,9 +33,7 @@ def QuickSelect(l,k):
         return QuickSelect(G,k-len(L)-len(E))
 
     
+if __name__ == "__main__":
 
-
-
-
-l = [1,2,2,2,4,4,5]
-print(QuickSelect(l,5))
+    l = [1,2,2,2,4,4,5]
+    print(QuickSelect(l,5))
