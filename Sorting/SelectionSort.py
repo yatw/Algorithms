@@ -1,21 +1,28 @@
+import math
+
+# run time always O(n^2)
 
 
-
-def SelectionSort(l):
+def SelectionSort(A):
+    '''
+        *Repeatedly (for i from 0 to n-1) find the minimum value
+         output it, delete it
+    '''
 
     
     result = []
     
-    for i in range(len(l)):
+    for i in range(len(A)):
         
-        maximum = -1
-        for e in l:
-            if e > maximum:
-                maximum = e
-        result.append(maximum)
-        l.remove(maximum)
+        minimum = math.inf
+        
+        for e in A:
+            if e < minimum:
+                minimum = e
+        result.append(minimum)
+        A.remove(minimum)
         
     return result
 
 if __name__ == "__main__":
-    print(SelectionSort([4,9,4,2,3,2]))
+    print(SelectionSort([23,19,42,17,85,38]))
