@@ -21,8 +21,9 @@ def QuickSort(A,first,last):
 
 def Split(A,first,last):
     '''
-        Find splitpoint, put all elements into groups according to the
-        split element
+        Find splitpoint, rearrange elements according to the
+        split element, smaller element in front of splitpoint,
+        bigger element after splitpoint
     '''
     splitpoint = first 
     split_element = A[first]
