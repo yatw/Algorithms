@@ -8,13 +8,14 @@ def Tournament(A):
     compared_with = {} # dictionary: {winner: [items compared with]}
     winners = A # initalize everyone is winner, slowly remove elements until 1
     n = len(winners)
-    
     while len(winners) != 1: # haven't determine the winner yet
+        print(winners)
 
         losers = []
         index = 0
         for i in range(len(winners)//2):
-            
+            #pairing elements
+            #winner move up
             if (winners[index] > winners[index+1]):
                 losers.append(winners[index+1])  # keep track of losers
 
@@ -40,15 +41,15 @@ def Tournament(A):
     
     second_max_candidates = compared_with[winners[0]]
 
-    second_max = -1
-    for sm in second_max_candidates:
-        if sm > second_max:
-            second_max = sm
+    second_max_value = second_max_candidates[0]
+    for sm in range(1,len(second_max_candidates)):
+        if second_max_candidates[sm] > second_max_value:
+            second_max_value = second_max_candidates[sm]
 
-    return winners[0],second_max
+    return winners[0],second_max_value
 
 if __name__ == '__main__':
     
-    image = Image.open(r"images\tournament.png").show()
+    #image = Image.open(r"images\tournament.png").show()
     m,sm = Tournament([64,41,53,62,68,60,75,63])
     print(m,sm)

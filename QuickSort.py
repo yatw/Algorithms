@@ -49,3 +49,9 @@ def Split(A,first,last):
 
 if __name__ == "__main__":
     print(QuickSort([23,19,42,17,85,38], 0, 6))
+
+
+
+
+
+

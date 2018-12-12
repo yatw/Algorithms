@@ -15,11 +15,13 @@ def InsertionSort(A):
         c = A[i] # current element
         p = i-1  # index of previous element
 
+        # shift the bigger element to the back
         while (p >= 0 and c < A[p]):
             
             A[p+1] = A[p]
             p -= 1
-            
+
+        # shift it all the way front
         A[p+1] = c
 
         

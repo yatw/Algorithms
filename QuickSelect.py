@@ -1,4 +1,7 @@
-
+'''
+    Worst case running time is theta(n^2)
+    Expected running time is O(n)
+'''
 
 def QuickSelect(l,k,m = None):
     '''Returns a kth smallest item from the list'''
