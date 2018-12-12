@@ -66,6 +66,10 @@ class BinaryHeap:
         '''
 
         i = self.A.index(E)
+
+        if (i == 0):
+            return None
+        
         parent_index = (i-1)//2 # take floor
         if (parent_index >= 0) and (self.A[parent_index] < E):
 
@@ -74,19 +78,20 @@ class BinaryHeap:
             self.A[parent_index] = E
 
             # continue to compare E with its grand-parent
-            ShiftUp(self, E)
+            self.ShiftUp(E)
 
     def ShiftDown(self, E):
         ''' Move the element at index i to its correct position down
-            by repeatedly swapping the element with its child
+            by repeatedly swapping the element with its larger child
         '''
+
         n = len(self.A)
         i = self.A.index(E)
         left_child_index = i*2+1
         right_child_index = i*2+2
 
-        # if a right child exist and E is smaller, use that one
-        if (right_child_index < n) and (E < self.A[right_child_index]):
+        # if a right child exist and it is bigger than left child, it is larger
+        if (right_child_index < n) and (self.A[right_child_index] > self.A[left_child_index]):
             larger_child_index = right_child_index
             
         # otherwise use left child
@@ -100,12 +105,12 @@ class BinaryHeap:
             self.A[i] = self.A[larger_child_index]
             self.A[larger_child_index] = E
 
-            ShiftDown(self, E)
+            self.ShiftDown(E)
 
     def Insert(self, E):
         '''Putting a new element and adjust element positions'''
         self.A.append(E)
-        ShiftUp(E)
+        self.ShiftUp(E)
 
     def Delete(self, E):
         '''Swap place between deleting element and the last element
@@ -123,25 +128,26 @@ class BinaryHeap:
         self.A[n-1] = E
 
         # remove the element at the end of the list
-        A.remove(E)
+        self.A.remove(E)
 
         if last_element in self.A:
             
-            ShiftUp(self, last_element)
-            ShiftDown(self, last_element)
+            self.ShiftUp(last_element)
+            self.ShiftDown(last_element)
 
-    def Heapify(self, L):
+    def Heapify(self):
 
-        for i in range(len(L)//2):
-            ShiftDown(L[i])
-
+        for i in reversed(range(len(self.A)//2)):
+            self.ShiftDown(self.A[i])
+        
         
     
 if __name__ == "__main__":
 
-    bh = BinaryHeap([83,79,27,36,23,18,15,14,31,20])
-    #print(bh.RightSon(36))
 
 
+    h = BinaryHeap([13,23,18,94,42,12,37,81,52,56])
+    h.Heapify()
+    print(h.A)
 
 
