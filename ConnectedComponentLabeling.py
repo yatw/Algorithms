@@ -36,13 +36,17 @@ def DSFLabel(G,v,label, explored_e = []):
 
 
 if __name__ == "__main__":
-    #image = Image.open('CCLGraph.PNG').show()
 
 
+    image = Image.open('images/CCLGraph.PNG').show()
 
     V = ['A','B','C','D','E','F']
     E = [('A','B'),('A','C'),('B','C'),('C','D'),('E','F')]
-    G = Graph(V,E)
+    G = Graph()
+    G.Set_directed = False
+    G.Set_weighted = False
+    for u,v in E:
+        G.Add_edge(u,v)
 
     ConnectedComponentLabeling(G)
     print(G.label)

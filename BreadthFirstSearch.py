@@ -18,6 +18,7 @@ def BFS(G,S):
     while len(this_level) != 0:
         
         for n in this_level:
+            # get all the reachable nodes from all the nodes from this level
             #print(n)
             ce = G.GetIncidentEdges(n) # connected edges
             
@@ -47,16 +48,17 @@ def BFS(G,S):
 
 if __name__ == "__main__":
     
-    #image = Image.open('images\BFSGraph.PNG').show()
-
-
-
+    image = Image.open('images\BFSGraph.PNG').show()
 
     V = ['A','B','C','D','E','F','G','H','I','J','K']
     E = [('A','B'),('A','C'),('A','D'),('A','E'),('C','D'),('D','E'),
          ('B','F'),('C','G'),('G','F'),('F','J'),('G','H'),('G','J'),
          ('J','K'),('H','I'),('H','K')]   
-    G = Graph(V,E)
+    G = Graph()
+    G.Set_directed(False)
+    G.Set_weighted(False)
+    for u,v in E:
+        G.Add_edge(u,v)
 
 
     r = BFS(G,'A')

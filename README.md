@@ -40,7 +40,7 @@ Strassen's method | Improve to O(n<sup>log2 7</sup>)
 Finding Maximum and Minimum (Break into pairs) | O( 3((n/2)-1) + 2)
 [Quick Select](https://github.com/yatw/Algorithms/blob/master/QuickSelect.py) | Find the k<sup>th</sup> smallest
 [Deterministic Selection](https://github.com/yatw/Algorithms/blob/master/DeterministicSelection.py)| Advance version of quick select
-**Graphs** | -
+**[Graphs](https://github.com/yatw/Algorithms/blob/master/Graph.py)** | -
 [Depth First Search](https://github.com/yatw/Algorithms/blob/master/DepthFirstSearch.py) | Keep going alone a path and back out
 [Breadth First Search](https://github.com/yatw/Algorithms/blob/master/BreadthFirstSearch.py) | Each level branch out from visited notes
 [Connected Component Labeling](https://github.com/yatw/Algorithms/blob/master/ConnectedComponentLabeling.py) | Group them if they are connected
