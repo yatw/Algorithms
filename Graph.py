@@ -36,13 +36,19 @@ class Graph:
         # boolean w indicated weighted graph or not
 
         if w:
-            self.weighted = True        
+            self.weighted = True
 
     def Set_edges(self, edges):
         self.edges = edges
 
     def Set_vertices(self, vertices):
         self.vertices = vertices
+
+    def Edges_count(self):
+        return len(self.edges)
+
+    def Vertices_count(self):
+        return len(self.vertices)
 
     def Add_vertice(self, v):
         self.vertices.add(v)
@@ -81,8 +87,12 @@ class Graph:
         IncidentEdges = []
         for s,d,w in self.edges:
             if s == v:
-                IncidentEdges.append(tuple((s,d)))
-            
+
+                if self.weighted:
+                    IncidentEdges.append(tuple((s,d,w)))
+                else:
+                    IncidentEdges.append(tuple((s,d)))
+                         
         return IncidentEdges
 
     def GetDestination(self,edge,v):
