@@ -17,10 +17,12 @@ def ConnectedComponentLabeling(G):
 
     return None
 
-def DSFLabel(G,v,label, explored_e = []):
+def DSFLabel(G,v,label, explored_e = None):
     '''Apply Depth First Search Algorithm and label visited vertice'''
 
-    
+    if explored_e is None:
+        explored_e = []
+        
     G.label[v] = label # store that labeling in the graph class
     ce = G.GetIncidentEdges(v)
     for e in ce:

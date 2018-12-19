@@ -104,6 +104,23 @@ class Graph:
         return edge[1]
 
 
+    def Reverse_edges(self):
+        '''Return a new graph that has all the link reversed'''
+
+        G_r = Graph()
+        G_r.Set_directed(self.directed)
+        G_r.Set_weighted(self.weighted)
+        
+        for u,v,w in self.edges:
+
+            if self.directed:
+                G_r.Add_edge(v,u,w)
+            else:
+                G_r.Add_edge(v,u)
+        
+        return G_r
+
+
 if __name__ == "__main__":
 
     G1 = Graph()

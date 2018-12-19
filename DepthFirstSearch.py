@@ -3,7 +3,7 @@ from Graph import Graph
 
 
 
-def DFS(G,S,explored_v = [] ,explored_e = [],back_edge = [], sort = False):
+def DFS(G,S,explored_v = None ,explored_e = None,back_edge = None, sort = None):
     '''Perform Depth First Search on the graph, record back edge at the same time
 
     S = starting vertice
@@ -11,7 +11,18 @@ def DFS(G,S,explored_v = [] ,explored_e = [],back_edge = [], sort = False):
     explored_e = both discovery edge and back edge that we visited
     back_edge = new edge that go back to a visited vertex
     '''
-    print(explored_e)
+
+    if explored_v is None:
+        explored_v = []
+    if explored_e is None:
+        explored_e = []
+    if back_edge is None:
+        back_edge = []
+    if sort is None:
+        sort = False
+
+
+    #print(explored_e)
     explored_v.append(S)
     
     ce = G.GetIncidentEdges(S) #get all the edges connecting to S
@@ -20,7 +31,7 @@ def DFS(G,S,explored_v = [] ,explored_e = [],back_edge = [], sort = False):
         # sort option remove reandomness when picking discovery edge
         # will instead take in Alphabetical order
         ce = sorted(ce, key = lambda x: x[1])
-    print(ce)
+    #print(ce)
     for u,v in ce: # for all the connecting edges
         
         if tuple((u,v)) not in explored_e and tuple((v,u)) not in explored_e :
@@ -33,7 +44,7 @@ def DFS(G,S,explored_v = [] ,explored_e = [],back_edge = [], sort = False):
                 # and never explored the destination vertice
                 # # gonna explore down this path!
 
-                print("go for destination " + destination)
+                #print("go for destination " + destination)
                 DFS(G,destination,explored_v,explored_e,back_edge, sort)
                 print("back to "+S)
                 #print("Available edges: ") # edges not explored before
@@ -76,6 +87,11 @@ if __name__ == "__main__":
     print(path)
     print("Back edges")
     print(be)
+
+
+    G_r = G.Reverse_edges()
+    path,_,be = DFS(G_r,'A', sort = True)
+    
 
      
 

@@ -8,11 +8,13 @@ class BinaryHeap:
             parent larger than child
     '''
     
-    A = []
     
-    def __init__(self, array = []):
+    def __init__(self, array = None):
 
-        self.A = array
+        if array is None:
+            self.A = []
+        else:
+            self.A = array
 
     def FindMax(self):
 
@@ -150,4 +152,5 @@ if __name__ == "__main__":
     h.Heapify()
     print(h.A)
 
-
+    h2 = BinaryHeap([43,83])
+    print(h2.A)
