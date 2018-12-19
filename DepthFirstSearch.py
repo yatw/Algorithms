@@ -46,7 +46,7 @@ def DFS(G,S,explored_v = None ,explored_e = None,back_edge = None, sort = None):
 
                 #print("go for destination " + destination)
                 DFS(G,destination,explored_v,explored_e,back_edge, sort)
-                print("back to "+S)
+                #print("back to "+S)
                 #print("Available edges: ") # edges not explored before
                 #print([p for p in ce if p not in explored_e])
                 

@@ -45,7 +45,7 @@ Finding Maximum and Minimum (Break into pairs) | O( 3((n/2)-1) + 2)
 [Breadth First Search](https://github.com/yatw/Algorithms/blob/master/BreadthFirstSearch.py) | Each level branch out from visited notes
 [Connected Component Labeling](https://github.com/yatw/Algorithms/blob/master/ConnectedComponentLabeling.py) | Group them if they are connected
 [Auxiliary Graph](https://github.com/yatw/Algorithms/blob/master/BiconnectedComponentAlgorithm.py) | Find biconnected components
-Strong Connectivity | Every point can go to any point in a direct graph
+[Strong Connectivity](https://github.com/yatw/Algorithms/blob/master/StrongConnectivity.py) | Every point can go to any point in a direct graph
 Topological Sorting | Check if directed graph has cycles (DAG)
 **Weighted Graphs**| -
 [Dijkstra's shortest path Algorithm](https://github.com/yatw/Algorithms/blob/master/DijkstraAlgorithm.py) | O(mlogn), no nonnegative weight
