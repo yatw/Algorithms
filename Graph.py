@@ -120,6 +120,33 @@ class Graph:
         
         return G_r
 
+    def Indegree(self,V):
+        '''Mainly for Topological Sorting, report how many
+           edges directed to this vertex
+        '''
+
+        count = 0
+        for u,v,w in self.edges:
+            if v == V:
+                count+=1
+                
+        return count
+
+    def Remove_vertex(self,V):
+        '''Mainly for Topological Sorting, remove vertex and corresponding edges'''
+
+        self.vertices.remove(V)
+
+
+        To_delete_edges = []
+        for u,v,w in self.edges:
+            if u == V or v == V:
+                To_delete_edges.append(tuple((u,v,w)))
+
+        for e in To_delete_edges:
+            self.edges.remove(e)
+
+        return None
 
 if __name__ == "__main__":
 
