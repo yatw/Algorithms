@@ -49,7 +49,7 @@ Finding Maximum and Minimum (Break into pairs) | O( 3((n/2)-1) + 2)
 [Topological Sorting](https://github.com/yatw/Algorithms/blob/master/TopologicalSort.py) | Find a way to visit all nodes according to prequisite
 **Weighted Graphs**| -
 [Dijkstra's shortest path Algorithm](https://github.com/yatw/Algorithms/blob/master/DijkstraAlgorithm.py) | O(mlogn), no nonnegative weight
-Bellman-Ford shortest path Algorithm | O(m*n), no negative cycles
+[Bellman-Ford shortest path Algorithm](https://github.com/yatw/Algorithms/blob/master/BellmanFordAlgorithm.py) | O(m*n), no negative cycles
 Prim-Jarnik MST Algorithm |  O(mlogn), Similar to Dijkstra
 Kruskal's MST algorithm | O((M+n)logn)Process edges from smallest to largest, take the edge if it is not in the same tree
 Baruvka's MST Algorithm | O(mlogn), merge clusters
