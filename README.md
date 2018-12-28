@@ -37,7 +37,7 @@ Integer multiplication | Improve to O(n<sup>log2 3</sup>)
 Strassen's method | Improve to O(n<sup>log2 7</sup>)
 **Selection and related problems**  | -
 [Finding the second largest (Tournament Approach)](https://github.com/yatw/Algorithms/blob/master/Tournament.py)  | O(n-1 + logn-1)
-Finding Maximum and Minimum (Break into pairs) | O( 3((n/2)-1) + 2)
+[Finding Maximum and Minimum (Break into pairs)](https://github.com/yatw/Algorithms/blob/master/MaxAndMin.py) | O( 3((n/2)-1) + 2)
 [Quick Select](https://github.com/yatw/Algorithms/blob/master/QuickSelect.py) | Find the k<sup>th</sup> smallest
 [Deterministic Selection](https://github.com/yatw/Algorithms/blob/master/DeterministicSelection.py)| Advance version of quick select
 **[Graphs](https://github.com/yatw/Algorithms/blob/master/Graph.py)** | -
