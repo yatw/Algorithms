@@ -4,16 +4,21 @@ import math
 
 
 '''
-The reason Dijkstra don't guarteen to work with negative wegight is because
+Same with Dijkstra Prim-Jarnik don't guarteen to work with negative wegight because
 once it done visiting a node, it will consider it done.
 
 This miss potnetially big weighted that get cancel out by a negative weight.
+
+
+Very Similar to Dijkstra by picking the out going edge with the lowest cost
+to connect, the only difference is it does not record the total distance from
+the starting vertex, only the distance from the cloest vertex in the tree
 '''
 
 
-def Dijkstra(G,S):
-    '''Disjkstra's shortest path algorithm calculate the information
-       of shortest path and cost to all vertices from starting vertex
+def Prim_Jarnik(G,S):
+    '''Prim-Jarnik MST Algorithm return the connection to all vertices
+       that give the lowest cost (form a minimum spanning tree)
     '''
 
     # initalize result table with all the vertices
@@ -43,13 +48,12 @@ def Dijkstra(G,S):
 
         
         can_reach = G.GetIncidentEdges(vertex_smallest_cost)
-        
+
         for u,v,w in can_reach:
             if v not in visited_vertices:
 
-                new_cost = result[u][0] + w
-                if (new_cost < result[v][0]):
-                    result[v][0] = new_cost
+                if (w < result[v][0]):
+                    result[v][0] = w
                     result[v][1] = u
 
         visited_vertices.append(vertex_smallest_cost)
@@ -61,14 +65,13 @@ def Dijkstra(G,S):
 
 if __name__ == "__main__":
 
-    image = Image.open('images\dijkstra_example.PNG').show()
+    image = Image.open('images\prim-Jarnik-example.PNG').show()
     
-    V = ['A','B','C','D','E','F','G','H','I','J']
-    E = [('A','B',12),('A','C',3),('A','D',7),('B','C',8),('C','D',6),
-         ('B','E',15),('C','F',2),('D','G',1),('C','E',5),('C','G',4),
-         ('E','F',5),('F','G',6),
-         ('E','I',10),('G','J',9),('F','H',10),('E','H',9),('G','H',6),
-         ('H','I',2),('H','J',5),('I','J',12)]
+    V = ['A','B','C','D','E','F','G','H','I','J','K']
+    E = [('D','C',5),('D','E',7),('C','H',12),('H','E',6),('C','B',6),
+         ('H','G',4),('E','F',5),('B','G',3),('G','F',2),('B','A',8),
+         ('A','F',9),('A','I',19),
+         ('I','J',14),('I','K',12),('J','K',9)]
          
 
     G = Graph()
@@ -78,7 +81,7 @@ if __name__ == "__main__":
     for u,v,w in E:
         G.Add_edge(u,v,w)
 
-    result = Dijkstra(G,'A')
+    result = Prim_Jarnik(G,'H')
     for i in sorted(result):
         print(i, result[i])
 
