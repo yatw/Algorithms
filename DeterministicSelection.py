@@ -31,17 +31,17 @@ def DeterministicSelection(S,k):
     if len(group) != 0:
         all_groups.append(group)
 
-  
+    #print(all_groups)
     # Step 2 Compute median of each group
     group_medians = []
     for g in all_groups:
         
-        group_medians.append(BruteForceSelect(g,len(g)//2))
+        group_medians.append(BruteForceSelect(g,1+(len(g)//2)))
 
-    #print(group_medians)
+    print(group_medians)
     # Step 3 Compute m* using recrusive call
-    m = DeterministicSelection(group_medians,len(group_medians)//2)
-
+    m = DeterministicSelection(group_medians,1+(len(group_medians)//2))
+    print(m)
     # Step 4 and 5 is same as normal quickselect
     return QuickSelect(S,k,m)
 
@@ -57,3 +57,4 @@ if __name__ == "__main__":
 
     x = DeterministicSelection(S,18)
     print(x)
+ 

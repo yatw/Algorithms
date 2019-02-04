@@ -11,7 +11,7 @@ Topics                         |  Remark
 **Proof by Induction**  | Assume n=k is true, prove n=k+1 also true
 **Binary Tree/ Binary Search**  | O(logn)
 **Comparison-based sorting** | -
-[Insertion sort](https://github.com/yatw/Algorithms/blob/master/SelectionSort.py)  | O(n<sup>2</sup>), stable
+[Insertion sort](https://github.com/yatw/Algorithms/blob/master/InsertionSort.py)  | O(n<sup>2</sup>), stable
 [Selection sort](https://github.com/yatw/Algorithms/blob/master/SelectionSort.py)  | O(n<sup>2</sup>), not stable
 [Quick sort](https://github.com/yatw/Algorithms/blob/master/QuickSort.py)  | worst case O(nlogn), average O(nlogn), not stable
 [Merge sort](https://github.com/yatw/Algorithms/blob/master/MergeSort.py)  |  O(nlogn), stable
